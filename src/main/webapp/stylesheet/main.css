@@ -1,0 +1,8 @@
+:root {
+	--c-img-bg : #14257f87;
+}
+
+img {
+    background: var(--c-img-bg);
+    border-radius: 50%;
+}

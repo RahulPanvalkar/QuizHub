@@ -38,5 +38,9 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
+    <!-- Static Resource -->
+    <mvc:resources mapping="/images/**" location="/images/" />
+    <mvc:resources mapping="/stylesheet/**" location="/stylesheet/" />
+
 
 </beans>
