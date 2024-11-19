@@ -1,17 +1,29 @@
 package com.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Role {
 
     @Id
+    @Column(length = 4)
     private String roleId;
 
     @Column(nullable = false, unique = true)
     private String descr;
+
+    @ManyToMany(mappedBy = "roles")
+    @JsonBackReference
+    private Set<User> users = new HashSet<>();
+
+
 
     public Role() {
     }

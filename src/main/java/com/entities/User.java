@@ -1,6 +1,7 @@
 package com.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -19,19 +20,21 @@ public class User {
     private String username;
     private String firstName;
     private String lastName;
+    private Timestamp expiresAt;
     private String password;
     @Column(nullable = false, unique = true)
     private String emailId;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 10)
     private String phone;
+    @Column(length = 6)
     private String verCode;
-    private Timestamp expiresAt;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
+    @JsonManagedReference
     private Set<Role> roles = new HashSet<>();
 
     @JsonIgnore

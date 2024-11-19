@@ -37,11 +37,13 @@ public class UserDao {
         }
     }
 
-    public void saveUser(User user) {
+    public User saveUser(User user) {
         hibernateTemplate.save(user);
         // Explicitly flush the Hibernate session to execute the SQL immediately
         hibernateTemplate.flush();
+        return user; // The user is already updated with the ID after save
     }
+
 
     public Optional<User> findByUsername(String username) {
         return hibernateTemplate.execute(session -> {

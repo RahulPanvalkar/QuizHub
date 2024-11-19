@@ -44,7 +44,7 @@ public class SecurityConfig {
 						 .antMatchers("admin/**").hasRole("ADMIN")
 						 .antMatchers("user/**").hasAnyRole("ADMIN", "USER")
                          .antMatchers("api/**").hasAnyRole("ADMIN", "USER")
-						 .antMatchers("/home","/login").permitAll() // Allow public access to login and static resources
+						 .antMatchers("/home","/login", "/add-default-users").permitAll() // Allow public access to login and static resources
 						 .anyRequest().authenticated())
                  //.formLogin(Customizer.withDefaults())
                  .formLogin(form -> form
