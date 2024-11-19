@@ -27,6 +27,13 @@
         <property name="maxUploadSize" value="5242880" /> <!-- 5MB -->
     </bean>
 
+
+    <!-- Environment variable -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+    </bean>
+
     <!-- Import Hibernate Config -->
     <import resource="hibernate-config.xml" />
 
@@ -41,6 +48,6 @@
     <!-- Static Resource -->
     <mvc:resources mapping="/images/**" location="/images/" />
     <mvc:resources mapping="/stylesheet/**" location="/stylesheet/" />
-
+    <mvc:resources mapping="/script/**" location="/script/" />
 
 </beans>

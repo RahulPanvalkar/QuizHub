@@ -1,8 +1,23 @@
 :root {
 	--c-img-bg : #14257f87;
+	--c-btn-bg : #ccc;
 }
 
 img {
     background: var(--c-img-bg);
     border-radius: 50%;
+}
+
+.login-container {
+    border: 1px solid #ccc; /* Border around the container */
+    border-radius: 0.8rem; /* Rounded corners */
+    background-color: #fff; /* White background for contrast */
+    padding: 2rem; /* Spacing inside */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Floating shadow effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.login-container:hover {
+    /*transform: translateY(-10px); Float effect on hover */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
 }

@@ -18,5 +18,6 @@
 	        <p class="text-center text-body-secondary">© 2024, QuizHub</p>
 	    </footer>
 
+		<script src="<c:url value='/script/form-validation.js'/>" ></script>
 	</body>
 </html>
