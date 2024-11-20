@@ -27,6 +27,12 @@ public class MainController {
         return "public/login";
     }
 
+    @GetMapping("error")
+    public String getErrorPage(){
+        logger.info("error is loading..");
+        return "public/custom-404";
+    }
+
 
     @GetMapping("logout")
     public String logoutAdmin(HttpServletRequest request) {

@@ -5,8 +5,7 @@
                              http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-
-<display-name>Archetype Created Web Application</display-name>
+    <display-name>QuizHub Web Application</display-name>
 
     <!-- Dispatcher Servlet Configuration -->
     <servlet>
