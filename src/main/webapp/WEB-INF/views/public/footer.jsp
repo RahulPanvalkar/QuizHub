@@ -8,16 +8,21 @@
 
 	    <footer class="py-3 my-4">
 	        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-	            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-	            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-	            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Contact</a></li>
-	            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-	            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
-	            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Feedback</a></li>
-	        </ul>
-	        <p class="text-center text-body-secondary">© 2024, QuizHub</p>
+                <li class="nav-item"><a href="#" class="custom-nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="custom-nav-link">Features</a></li>
+                <li class="nav-item"><a href="#" class="custom-nav-link">Contact</a></li>
+                <li class="nav-item"><a href="#" class="custom-nav-link">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="custom-nav-link">About</a></li>
+                <li class="nav-item"><a href="#" class="custom-nav-link">Feedback</a></li>
+            </ul>
+	        <%--<p class="text-center text-body-secondary custom-nav-link">© 2024 <span class="brand-text">QuizHub</span></p>--%>
+	        <p class="text-center text-body-secondary">
+	            <img src="<c:url value='/images/brand-logo2.svg'/>" alt="user-profile" width="30" class="footer-brand-logo">
+	        </p>
+
 	    </footer>
 
 		<script src="<c:url value='/script/form-validation.js'/>" ></script>
 	</body>
 </html>
+

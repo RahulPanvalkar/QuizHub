@@ -26,15 +26,15 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         // Get the authenticated user details (UserDetails object)
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();  // Use authentication.getPrincipal()
         if (roles.contains("ROLE_ADMIN")) {
-            response.sendRedirect("admin/add-default-user");
+            response.sendRedirect("admin/home");
 
             // Fetch admin details and set in session
 //            String username = userDetails.getUsername();  // Get the username from the UserDetails object
 //            Admin admin = adminService.getAdmin(username);  // Fetch admin from database using username
 //            userSession.setAdmin(admin);  // Store Admin object in session
 
-        } else if (roles.contains("ROLE_USER")) {
-            response.sendRedirect("user/beans");
+        } else if (roles.contains("ROLE_NORMAL")) {
+            response.sendRedirect("user/home");
 
             // Fetch admin details and set in session
 //            String username = userDetails.getUsername();  // Get the username from the UserDetails object
@@ -42,7 +42,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 //            userSession.setConsumer(consumer);  // Store Consumer object in session
 
         } else {
-            response.sendRedirect("/"); // Default URL for other roles or if no role matches
+            response.sendRedirect("home"); // Default URL for other roles or if no role matches
         }
     }
 }

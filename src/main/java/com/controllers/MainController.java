@@ -15,7 +15,7 @@ public class MainController {
     private static final Logger logger = LoggerUtil.getLogger(MainController.class);
 
 
-    @RequestMapping({"/","home"})
+    @RequestMapping({"/","home","admin/home","user/home"})
     public String getHome(){
         logger.info("home is loading..");
         return "public/home";

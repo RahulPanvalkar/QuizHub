@@ -1,4 +1,4 @@
-package com.services;
+package com.services.impl;
 
 import com.dao.RoleDao;
 import com.dao.UserDao;
@@ -78,12 +78,13 @@ public class DefaultUserCreation {
 		user.setPassword(passwordEncoder.encode("Admin123"));
 		user.setEmailId("johndoe@gmail.com");
 		user.setPhone("1234567890");
+		user.setEnabled(true);
 
 		// Set user roles
 		Set<Role> roles = new HashSet<>();
 		Role adminRole = roleDao.findByRoleId("ADM").orElse(new Role("ADM","ADMIN"));
 		roles.add(adminRole);
-		Role userRole = roleDao.findByRoleId("USR").orElse(new Role("USR","USER"));
+		Role userRole = roleDao.findByRoleId("NORM").orElse(new Role("NORM","NORMAL"));
 		roles.add(userRole);
 		user.setRoles(roles);
 
@@ -125,10 +126,11 @@ public class DefaultUserCreation {
 		user.setPassword(passwordEncoder.encode("Emma@123"));
 		user.setEmailId("emma@gmail.com");
 		user.setPhone("1287654321");
+		user.setEnabled(true);
 
 		// setting user roles
 		Set<Role> roles = new HashSet<>();
-		Role userRole = roleDao.findByRoleId("USR").orElse(new Role("USR","USER"));
+		Role userRole = roleDao.findByRoleId("NORM").orElse(new Role("NORM","NORMAL"));
 		roles.add(userRole);
 		user.setRoles(roles);
 

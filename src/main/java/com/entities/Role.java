@@ -1,11 +1,9 @@
 package com.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,10 +17,9 @@ public class Role {
     @Column(nullable = false, unique = true)
     private String descr;
 
-    @ManyToMany(mappedBy = "roles")
-    @JsonBackReference
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<User> users = new HashSet<>();
-
 
 
     public Role() {

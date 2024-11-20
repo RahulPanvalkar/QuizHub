@@ -1,13 +1,20 @@
 package com.controllers;
 
-import com.services.DefaultUserCreation;
+import com.entities.User;
+import com.services.impl.DefaultUserCreation;
 import com.utility.LoggerUtil;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -16,30 +23,24 @@ public class UserController {
     @Autowired
     DefaultUserCreation userCreation;
 
-    // Flag to track if the default users have been added
-    private static boolean defaultUsersAdded = false;
 
-    @GetMapping("add-default-users")
-    @ResponseBody
-    public ResponseEntity<?> addDefaultUsers() {
-        logger.info("addDefaultUsers is called...");
+    @PostMapping("/register")
+    public String registerUser(@ModelAttribute User user, Model model) {
+        RestTemplate restTemplate = new RestTemplate();
+        // API URL for adding user
+        String url = "http://localhost:8080/QuizHub/api/add-user"; // Replace with the actual URL of your add-user API
 
-        // Check if the default users have already been created
-        if (defaultUsersAdded) {
-            logger.info("Default users already created.");
-            return ResponseEntity.ok("Default users have already been created.");
-        }
+        // Call the add-user API
+        ResponseEntity<?> response = restTemplate.exchange(url, HttpMethod.POST, new HttpEntity<>(user), Map.class);
 
-        // Proceed with user creation logic if not created yet
-        ResponseEntity<?> response = userCreation.addDefaultUsers();
-
+        // Check response status
         if (response.getStatusCode().is2xxSuccessful()) {
-            // Mark as completed after successful creation
-            defaultUsersAdded = true;
-            logger.info("Default users created successfully.");
+            model.addAttribute("message", "User registered successfully.");
+            return "redirect:/login";  // Redirect to login page after successful registration
+        } else {
+            model.addAttribute("error", response.getBody());  // Display error message
+            return "register";  // Return to the registration page
         }
-
-        return response;
     }
 
 }

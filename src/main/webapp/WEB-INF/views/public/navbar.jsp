@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <html>
 	<head>
@@ -12,7 +12,10 @@
 	    <header class="header">
 	        <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-light">
                 <div class="container">
-                    <a class="navbar-brand" href="/"><strong>QuizHub</strong></a>
+                    <a class="navbar-brand" href="home">
+                        <img src="<c:url value='/images/brand-logo2.svg'/>" alt="logo" width="30" class="d-inline-block align-text-top mr-4">
+                        <strong class="brand-text" hidden>QuizHub</strong>
+                    </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -49,9 +52,16 @@
                             </li>
                         </ul>
 
-                        <div class="d-flex mb-2 mb-lg-0">
-                             <a href="login" class="btn btn-info ms-2">Sign In</a>
-                        </div>
+                        <%--<div class="d-flex mb-2 mb-lg-0">
+                             <a href="login" class="btn ms-2 btn-nav-login text-white">Sign In</a>
+                        </div>--%>
+
+                        <sec:authorize access="isAuthenticated()">
+                            <a class="profile-icon" href="#" >
+                                <img src="<c:url value='/images/user-light.svg'/>" alt="user-profile" width="30" class="d-inline-block align-text-top mr-4">
+                            </a>
+                        </sec:authorize>
+
                     </div>
                 </div>
             </nav>

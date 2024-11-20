@@ -1,0 +1,52 @@
+
+.form-container {
+    border: 1px solid #ccc; /* Border around the container */
+    border-radius: 0.8rem; /* Rounded corners */
+    background-color: #fff; /* White background for contrast */
+    padding: 2rem; /* Spacing inside */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Floating shadow effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-container:hover {
+    /*transform: translateY(-10px); Float effect on hover */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.input-group-text img {
+    width: 1rem;
+    height: auto;
+}
+
+.btn-google {
+    background-color: #dd4b39 !important;
+    color: white !important;
+}
+
+.google-icon {
+	width: 1rem;
+    height: auto;
+}
+
+.btn-facebook {
+    background-color: #3b5998 !important;
+    color: white !important;
+}
+
+.facebook-icon {
+	width: 1.2rem;
+    height: auto;
+}
+
+.btn-facebook:hover {
+    background-color: #344e86;
+}
+
+
+.form-error {
+	width: 100%;
+    margin-top: .25rem;
+    font-size: .875em;
+    color: #dc3545;
+    text-align: center;
+}

@@ -1,23 +1,76 @@
 :root {
+	--c-linear-grad-bg: linear-gradient(45deg, #db4437, #f4b400, #0f9d58, #4285f4);
 	--c-img-bg : #14257f87;
 	--c-btn-bg : #ccc;
 }
 
-img {
-    background: var(--c-img-bg);
-    border-radius: 50%;
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
 }
 
-.login-container {
-    border: 1px solid #ccc; /* Border around the container */
-    border-radius: 0.8rem; /* Rounded corners */
-    background-color: #fff; /* White background for contrast */
-    padding: 2rem; /* Spacing inside */
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Floating shadow effect */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+body{
+	background: var(--c-linear-grad-bg);
 }
 
-.login-container:hover {
-    /*transform: translateY(-10px); Float effect on hover */
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+/*-- NAVBAR --*/
+@keyframes rotate360 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.navbar-brand img {
+    width: 3rem;
+    height: auto;
+    /*animation: rotate360 1.5s linear infinite;*/
+    transform-origin: center;
+}
+
+
+.brand-text {
+    background: linear-gradient(45deg, #e07272, #0f0f0f, #282e2d, #93483e);
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.btn-nav-login {
+	background: linear-gradient(45deg, #9a8b8b, #837e7e, #7b9893, #36363c);
+    color: white;
+}
+
+.profile-icon img{
+	width: 1.5rem;
+}
+
+
+/*-- FOOTER --*/
+.custom-nav-link {
+	display: block;
+    padding: .5rem 1rem;
+    color: #fff;
+    background-color: transparent;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.custom-nav-link:hover {
+    color: #f0f0f0;
+}
+
+.footer-brand-logo {
+	width: 4rem;
+	height: auto;
 }

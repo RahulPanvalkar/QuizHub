@@ -1,4 +1,4 @@
-package com.services;
+package com.services.impl;
 
 import com.dao.UserDao;
 import com.entities.CustomUserDetail;

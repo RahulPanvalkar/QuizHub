@@ -1,6 +1,7 @@
 package com.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -24,17 +25,19 @@ public class User {
     private String password;
     @Column(nullable = false, unique = true)
     private String emailId;
-    @Column(nullable = false, unique = true, length = 10)
+    @Column(nullable = false, length = 10)
     private String phone;
     @Column(length = 6)
     private String verCode;
+    @Column(nullable = false)
+    private boolean enabled;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    @JsonManagedReference
+    @JsonIgnore
     private Set<Role> roles = new HashSet<>();
 
     @JsonIgnore
@@ -58,6 +61,7 @@ public class User {
 
 
     public User() {
+        this.enabled = false;
     }
 
     public long getUserId() {
@@ -155,6 +159,15 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
 
     @Override
     public String toString() {

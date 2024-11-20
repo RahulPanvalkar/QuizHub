@@ -18,3 +18,14 @@
       }, false)
     })
 })();
+
+
+// Select all input fields inside the form
+const formInputs = document.querySelectorAll("input[type='text'], input[type='email'], input[type='password']");
+
+// Add an event listener to each input field
+formInputs.forEach(input => {
+    input.addEventListener("focus", function() {
+        this.value = "";
+    });
+});
